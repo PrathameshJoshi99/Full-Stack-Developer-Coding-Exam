@@ -1,0 +1,3 @@
+django-admin startproject notekeeper_project
+cd notekeeper_project
+python manage.py startapp notes
