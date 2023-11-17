@@ -1,0 +1,49 @@
+# NoteKeeper Django Application - Deployment Documentation
+
+This document provides step-by-step instructions for deploying the NoteKeeper Django application to a production environment. Make sure to replace placeholder values with your actual configuration details.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [AWS Deployment](#aws-deployment)
+  - [AWS RDS Setup](#aws-rds-setup)
+  - [AWS EC2 Setup](#aws-ec2-setup)
+  - [AWS Lambda Setup](#aws-lambda-setup)
+  - [AWS S3 Setup (Optional)](#aws-s3-setup-optional)
+- [Configure Django for Production](#configure-django-for-production)
+- [Web Server Setup (Optional)](#web-server-setup-optional)
+- [Security Considerations](#security-considerations)
+- [Monitoring and Logging](#monitoring-and-logging)
+
+## Prerequisites
+
+Before deploying the application, make sure you have:
+
+- An AWS account with necessary permissions.
+- PostgreSQL database credentials.
+- AWS access key and secret access key.
+- ...
+
+## AWS Deployment
+
+### AWS RDS Setup
+
+1. Create an RDS instance in the AWS Management Console.
+   - Choose PostgreSQL as the database engine.
+   - Set up the database name, username, and password.
+   - Configure security groups to allow traffic.
+
+2. Update `notekeeper_project/settings.py` with RDS database configuration.
+   ```python
+   # notekeeper_project/settings.py
+
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'your-rds-database-name',
+           'USER': 'your-rds-database-user',
+           'PASSWORD': 'your-rds-database-password',
+           'HOST': 'your-rds-endpoint',
+           'PORT': '5432',
+       }
+   }
